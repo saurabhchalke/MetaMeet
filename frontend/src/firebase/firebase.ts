@@ -15,14 +15,15 @@ const firebaseConfig = {
 }
 */
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: "",
-}
+  apiKey: "AIzaSyCDxEHzZbF-IuuxiVMY6FjhTm-UaiO2ekw",
+  authDomain: "metameet-af741.firebaseapp.com",
+  projectId: "metameet-af741",
+  storageBucket: "metameet-af741.appspot.com",
+  messagingSenderId: "1062738211160",
+  appId: "1:1062738211160:web:89936177a3a63e3d0ef52d"
+};
 
 const app = initializeApp(firebaseConfig)
 

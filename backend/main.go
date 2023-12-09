@@ -70,7 +70,12 @@ func main() {
 		AppName:           "perplex-api",
 		StreamRequestBody: true,
 	})
-	app.Use(cors.New())
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: "*", // Caution: Set specific origins for production
+		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
+		AllowMethods: "GET,POST,HEAD,PUT,DELETE,PATCH",
+	}))
+	
 	app.Get("/", func(ctx *fiber.Ctx) error {
 		return ctx.SendString("Welcome to the perplex api! https://github.com/darmiel/perplex")
 	})
