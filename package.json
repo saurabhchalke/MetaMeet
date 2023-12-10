@@ -1,0 +1,46 @@
+{
+  "name": "scheduleyoursocial",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "svelte-kit build",
+    "createFixtures": "./habitat.sh node ./db/createSocial.js",
+    "dev": "./habitat.sh svelte-kit dev -p 6602",
+    "db": "docker run --rm --name faunadb -p 8443:8443 -v scheduleyoursocial:/var/lib/faunadb fauna/faunadb",
+    "db:init": "./habitat.sh fauna eval --file db/init.fql --secret $FAUNADB_SERVER_SECRET --port $FAUNADB_PORT --scheme $FAUNADB_SCHEME --domain $FAUNADB_DOMAIN",
+    "getAllSocials": "./habitat.sh fauna eval --file db/get-all-socials.fql --secret $FAUNADB_SERVER_SECRET --port $FAUNADB_PORT --scheme $FAUNADB_SCHEME --domain $FAUNADB_DOMAIN | jq",
+    "package": "svelte-kit package",
+    "postinstall": "patch-package",
+    "preview": "svelte-kit preview",
+    "unit": "ava **/*.spec.js",
+    "unit:dev": "npm run unit -- --watch",
+    "test:dev": "cypress open"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^1.0.0-next.40",
+    "@sveltejs/adapter-netlify": "^1.0.0-next.56",
+    "@sveltejs/kit": "^1.0.0-next.325",
+    "ava": "^4.0.0",
+    "cypress": "^9.3.1",
+    "fauna-shell": "^0.13.0",
+    "netlify-cli": "^15.8.1",
+    "patch-package": "^6.4.7",
+    "svelte": "^3.44.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fontsource/amatic-sc": "^4.5.0",
+    "@fontsource/fira-mono": "^4.5.0",
+    "@fontsource/port-lligat-slab": "^4.5.2",
+    "@lukeed/uuid": "^2.0.0",
+    "@sentry/browser": "^6.19.1",
+    "@sentry/tracing": "^6.19.1",
+    "@sindresorhus/string-hash": "^2.0.0",
+    "cookie": "^0.4.1",
+    "faunadb": "^4.5.2",
+    "papercss": "^1.9.2",
+    "plausible-tracker": "^0.3.5",
+    "praecox-datepicker": "^1.1.7",
+    "spaper": "^1.1.1",
+    "web-push": "^3.6.3"
+  }
+}

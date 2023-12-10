@@ -1,0 +1,21 @@
+a {
+  background-image: none;
+  text-decoration-color: rgb(0, 0, 238);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: auto;
+}
+
+.paper-btn,
+[type="button"],
+button {
+  padding: 0.5rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}

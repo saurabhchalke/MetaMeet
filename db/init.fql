@@ -1,0 +1,20 @@
+If(
+	Exists(Collection('social')),
+	'Collection already exists.',
+	CreateCollection({name: 'social'})
+)
+
+CreateRole({
+	name: 'invitee',
+	privileges: {
+		resource: Collection('social'),
+		actions: {
+			read: true,
+			write: true,
+		}
+	}
+})
+
+CreateKey({
+	role: Role('invitee')
+})
