@@ -19,10 +19,10 @@
 </script>
 
 <svelte:head>
-  <title>The fastest way to find out when your friends are free</title>
+  <title>The fastest way to meet your friends on the Monaverse</title>
 </svelte:head>
 
-<h1>The fastest way to find out when your friends are free</h1>
+<h1>The fastest way to meet your friends on the Monaverse</h1>
 <p>Let's start with your name</p>
 
 <!-- svelte-ignore missing-declaration -->

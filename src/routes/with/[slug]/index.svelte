@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>The fastest way to find out when your friends are free</title>
+	<title>The fastest way to meet your friends on the Monaverse</title>
 </svelte:head>
 
 <h2>Schedule your next social with</h2>

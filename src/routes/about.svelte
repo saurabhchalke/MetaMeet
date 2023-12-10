@@ -23,7 +23,7 @@
   <title>About</title>
 </svelte:head>
 
-<h1>The fastest way to find out when your friends are free</h1>
+<h1>The fastest way to meet your friends on the Monaverse</h1>
 <p>
   Trying to find a day when friends are free to meet can be a painful process,
   especially over text. We save you time by collecting everyone's availability

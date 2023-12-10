@@ -6,7 +6,7 @@
 <Hero type="primary">
   <div slot="title">
     <Logo width="120px" />
-    <h1>The fastest way to find out when your friends are free</h1>
+    <h1>The fastest way to meet your friends on the Monaverse</h1>
   </div>
   <svelte:fragment slot="textLead">
     Schedule Your Social is the social planning app that has no signup, no ads,
