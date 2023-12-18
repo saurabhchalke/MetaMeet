@@ -1,5 +1,7 @@
 # MetaMeet
 
+![MetaMeet Homepage](./static/homepage.png)
+
 Welcome to **MetaMeet** – a fast, efficient, and easy-to-use tool for scheduling virtual meetups in the MONA metaverse, without the hassle of logins or complex setups.
 
 ## Overview
