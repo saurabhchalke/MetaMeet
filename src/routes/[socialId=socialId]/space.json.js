@@ -5,9 +5,6 @@ import convertDatesToStrings from "$lib/convertDatesToStrings";
 const q = faunadb.query;
 
 const client = new faunadb.Client({
-  domain: process.env.FAUNADB_DOMAIN,
-  port: process.env.FAUNADB_PORT,
-  scheme: process.env.FAUNADB_SCHEME,
   secret: process.env.FAUNADB_SERVER_SECRET,
 });
 
