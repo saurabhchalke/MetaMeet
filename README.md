@@ -42,4 +42,4 @@ To get started with MetaMeet, follow these simple steps:
    npm run dev
    ```
 
-**Note:** This currently only works on Ubuntu 20.04. If you are using a different OS, you will need to install the dependencies manually.
+**Note:** Refer to the `faunadb-cloud` branch if you would like to deploy it to FaunaDB Cloud instead of running it locally. The fauna db clients in the `faunadb-cloud` branch are configured to use the FaunaDB Cloud instance.
