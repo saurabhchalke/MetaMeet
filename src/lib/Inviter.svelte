@@ -14,7 +14,7 @@
     try {
       await navigator.share({
         title: "MetaMeet",
-        text: "You've been invited to a social!",
+        text: "You've been invited to a Space!",
         url: inviteUrl,
       });
       trackShareInviteLink("native");

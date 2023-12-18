@@ -4,19 +4,35 @@
   import Next from "$lib/Next.svelte";
   import { Form, Input, Progress } from "spaper";
   import { theme } from "$lib/theme.store";
+  import { writable } from "svelte/store";
+  import { spaces } from "$lib/spaces.store";
 
   export const prerender = true;
+  const selectedSpace = writable(null);
 </script>
 
 <script>
   let loading;
   $theme.background = "beer";
+  let currentSelection = "";
+
+  let spaceArray = [];
+  spaces.subscribe((value) => {
+    spaceArray = value;
+    if (spaceArray.length > 0 && !currentSelection) {
+      currentSelection = spaceArray[0].name;
+      selectedSpace.set(spaceArray[0]);
+    }
+  });
 
   async function handleFormSubmit(e) {
+    e.preventDefault();
     loading = true;
+    const selectedSpaceName = $selectedSpace ? $selectedSpace.name : "";
 
     try {
       const formData = new FormData(e.target);
+      formData.set("space", selectedSpaceName);
       const name = formData.get("name");
 
       const response = await fetch("/create.json", {
@@ -31,6 +47,15 @@
     }
   }
 
+  function selectSpace(space) {
+    selectedSpace.set(space);
+    currentSelection = space.name;
+  }
+
+  function openSpaceUrl(url) {
+    window.open(url, "_blank");
+  }
+
   onMount(() => {
     document.getElementById("name").focus();
 
@@ -42,10 +67,20 @@
         images.forEach((i) => i.classList.remove("glow"));
         // Add glow to the hovered image
         img.classList.add("glow");
+        selectSpace(spaceArray[index]);
+      });
+
+      img.addEventListener("click", () => {
+        selectSpace(spaceArray[index]);
+      });
+
+      img.addEventListener("dblclick", () => {
+        openSpaceUrl(spaceArray[index].url);
       });
     });
 
     // Ensure the first image always has a glow
+    images.forEach((i) => i.classList.remove("glow"));
     images[0].classList.add("glow");
   });
 </script>
@@ -58,7 +93,7 @@
 <p>Let's start with your name</p>
 
 <Form on:submit={handleFormSubmit}>
-  <Input id="name" class="margin-bottom-small" name="name" />
+  <Input id="name" class="margin-bottom-small" name="name" required />
   <Next disabled={loading} />
   <Progress
     style={`visibility: ${loading ? "visible" : "hidden"}`}
@@ -67,36 +102,21 @@
   />
 </Form>
 
-<p>Select the Monaverse space</p>
+{#if currentSelection}
+  <p>
+    Selected Space: <span style="font-weight: bold; color: #0000EE"
+      >{currentSelection}</span
+    >
+  </p>
+{/if}
 
 <div class="image-container">
-  <div class="image-wrapper">
-    <a
-      href="https://monaverse.com/spaces/neon-city-streets/details"
-      target="_blank"
-    >
-      <img src="/neon-city.png" alt="Space 1" class="glow" />
-    </a>
-    <p class="image-text">Neon City</p>
-  </div>
-  <div class="image-wrapper">
-    <a
-      href="https://monaverse.com/spaces/caelestia:-the-lost-fields/details"
-      target="_blank"
-    >
-      <img src="/temple-garden.png" alt="Space 1" class="glow" />
-    </a>
-    <p class="image-text">Temple Garden</p>
-  </div>
-  <div class="image-wrapper">
-    <a
-      href="https://monaverse.com/spaces/caelestia:-the-lost-fields/details"
-      target="_blank"
-    >
-      <img src="/caelestia.png" alt="Space 1" class="glow" />
-    </a>
-    <p class="image-text">Caelestia</p>
-  </div>
+  {#each spaceArray as { name, image }}
+    <div class="image-wrapper">
+      <img src={image} alt={name} class="glow" />
+      <p class="image-text">{name}</p>
+    </div>
+  {/each}
 </div>
 
 <style>
