@@ -2,7 +2,7 @@ import webpush from 'web-push'
 
 export async function send (social, userId, notification) {
 	webpush.setVapidDetails(
-		'mailto:mrdanielmetcalfe@gmail.com',
+		'mailto:saurabhchalke@gmail.com',
 		process.env.VAPID_PUBLIC_KEY,
 		process.env.VAPID_PRIVATE_KEY,
 	)

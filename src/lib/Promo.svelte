@@ -9,9 +9,9 @@
     <h1>The fastest way to meet your friends on the Monaverse</h1>
   </div>
   <svelte:fragment slot="textLead">
-    Schedule Your Social is the social planning app that has no signup, no ads,
-    and is completely free. We help you find a date that works for everyone in
-    three easy steps.
+    MetaMeet is the social planning app that has no signup, no ads, and is
+    completely free. We help you find a date that works for everyone in three
+    easy steps.
   </svelte:fragment>
   <ol>
     <li>Enter your name and availability 📅</li>

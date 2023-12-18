@@ -77,7 +77,7 @@
   <Hero type="primary" size="small">
     <svelte:fragment slot="textLead">
       <Logo width="50px" />Psst! This is where
-      <a href="/">Schedule Your Social</a> can help 👍
+      <a href="/">MetaMeet</a> can help 👍
     </svelte:fragment>
   </Hero>
 
@@ -92,7 +92,7 @@
     A crucial aspect of hosting a board games night is selecting the right games
     that suit your guests' interests and preferences. Aim for a diverse mix of
     games, including strategic, party, cooperative, and trivia games. Some of
-    our favorites here at Schedule Your Social are:
+    our favorites here at MetaMeet are:
   </p>
   <ul>
     <li>

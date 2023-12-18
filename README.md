@@ -29,9 +29,10 @@ To get started with MetaMeet, follow these simple steps:
 
 3. **Run the necessary scripts:**
    ```bash
+   nvm use # use the version of node specified in .nvmrc
    cp .env.template .env
-   npx web-push generate-vapid-keys
-   dotenv > .envrc && direnv allow
+   npx web-push generate-vapid-keys # copy the output into the values for VAPID_PUBLIC_KEY and VAPID_PRIVATE_KEY in .env
+   npm dotenv > .envrc && direnv allow
    npm run db # start fauna db locally on docker
    npm run db:init # Copy the secret from stdout into the value for FAUNADB_INVITEE_SECRET in .env
    ```

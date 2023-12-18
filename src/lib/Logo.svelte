@@ -6,13 +6,7 @@
   export let width;
 </script>
 
-<img
-  class="logo"
-  src={logo}
-  alt="Schedule Your Social logo"
-  {width}
-  height={width}
-/>
+<img class="logo" src={logo} alt="MetaMeet logo" {width} height={width} />
 
 <style>
   img.logo {
